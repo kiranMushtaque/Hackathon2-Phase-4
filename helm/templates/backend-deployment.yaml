@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-deployment
+  labels:
+    app: backend
+spec:
+  replicas: {{ .Values.backend.replicas }}
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+      - name: backend
+        image: {{ .Values.backend.image }}
+        imagePullPolicy: {{ .Values.backend.imagePullPolicy }}
+        ports:
+        - containerPort: {{ .Values.backend.port }}
+        env:
+        - name: DATABASE_URL
+          value: {{ .Values.backend.env.DATABASE_URL | quote }}
+        - name: GOOGLE_API_KEY
+          value: {{ .Values.backend.env.GOOGLE_API_KEY | quote }}
+        - name: SECRET_KEY
+          value: {{ .Values.backend.env.SECRET_KEY | quote }}
+        - name: BETTER_AUTH_SECRET
+          value: {{ .Values.backend.env.BETTER_AUTH_SECRET | quote }}

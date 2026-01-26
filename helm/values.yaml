@@ -1,0 +1,19 @@
+backend:
+  image: kiran8877/todo-chatbot-backend:0.1.20
+  imagePullPolicy: Never
+  replicas: 1
+  port: 8000
+  env:
+    DATABASE_URL: "sqlite:///taskmanager.db"
+    GOOGLE_API_KEY: "AIzaSyDr5XgznFqb3B1khnoWPVO38gimXof4K7I"
+    SECRET_KEY: "phase2-secure-jwt-secret-key-minimum-32-characters-long"
+    BETTER_AUTH_SECRET: "phase2-better-auth-secret-key-minimum-32-characters"
+
+frontend:
+  image: kiran8877/todo-chatbot-frontend:0.1.0
+  imagePullPolicy: Never
+  replicas: 1
+  port: 3000
+  env:
+  NEXT_PUBLIC_API_URL: "http://localhost:8000"
+ 

@@ -1,0 +1,6 @@
+apiVersion: v2
+name: todo-chatbot-backend
+description: A Helm chart for deploying the backend of the Todo Chatbot application
+type: application
+version: 0.1.0
+appVersion: "1.0.0"

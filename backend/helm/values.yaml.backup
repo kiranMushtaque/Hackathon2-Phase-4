@@ -1,0 +1,55 @@
+# Default values for todo-chatbot-backend.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+image:
+  repository: your-dockerhub-username/todo-chatbot-backend
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "0.1.0"
+
+service:
+  type: ClusterIP
+  port: 80
+
+# Environment variables from ConfigMap and Secrets
+# Non-sensitive configuration
+env:
+  config:
+    APP_NAME: "Todo Chatbot Backend"
+    LOG_LEVEL: "INFO"
+
+# Sensitive configuration (values will be base64 encoded)
+# It's recommended to manage these values outside of version control,
+# for example using --set or a separate values file.
+envSecret:
+  DATABASE_URL: "psql 'postgresql://neondb_owner:npg_LWwMRE34PKSn@ep-lively-fire-a4a0fnoi-pooler.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require"
+  GEMINI_API_KEY: "AIzaSyCwgDzC5jaCD9NTjy8P1MpWX9az7yo8rNc"
+  SECRET_KEY: "phase2-secure-jwt-secret-key-minimum-32-characters-long"
+  BETTER_AUTH_SECRET: "phase2-better-auth-secret-key-minimum-32-characters"
+
+# Resource requests and limits
+resources:
+  requests:
+    cpu: 100m
+    memory: 128Mi
+  limits:
+    cpu: 500m
+    memory: 512Mi
+
+# Liveness and readiness probes
+livenessProbe:
+  httpGet:
+    path: /health
+    port: http
+  initialDelaySeconds: 15
+  periodSeconds: 20
+
+readinessProbe:
+  httpGet:
+    path: /health
+    port: http
+  initialDelaySeconds: 5
+  periodSeconds: 10
