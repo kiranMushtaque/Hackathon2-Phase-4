@@ -12,8 +12,8 @@ env:
     APP_NAME: "Todo Chatbot Backend"
     LOG_LEVEL: "INFO"
 envSecret:
-  DATABASE_URL: "postgresql://neondb_owner:npg_LWwMRE34PKSn@ep-lively-fire-a4a0fnoi-pooler.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require"
-  GEMINI_API_KEY: "AIzaSyCwgDzC5jaCD9NTjy8P1MpWX9az7yo8rNc"
+  DATABASE_URL: "postgresql://username:password@localhost:5432/dbname"
+  GEMINI_API_KEY: "REPLACE_ME"
   SECRET_KEY: "phase2-secure-jwt-secret-key-minimum-32-characters-long"
   BETTER_AUTH_SECRET: "phase2-better-auth-secret-key-minimum-32-characters"
 resources:

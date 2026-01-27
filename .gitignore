@@ -1,0 +1,23 @@
+cat > .gitignore << EOF
+# Environment files
+.env
+.env.*
+
+# Secrets
+*.key
+*.pem
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Node modules
+node_modules/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+EOF
