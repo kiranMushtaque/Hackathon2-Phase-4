@@ -12,10 +12,10 @@ env:
     APP_NAME: "Todo Chatbot Backend"
     LOG_LEVEL: "INFO"
 envSecret:
-  DATABASE_URL: "postgresql://username:password@localhost:5432/dbname"
-  GEMINI_API_KEY: "REPLACE_ME"
-  SECRET_KEY: "phase2-secure-jwt-secret-key-minimum-32-characters-long"
-  BETTER_AUTH_SECRET: "phase2-better-auth-secret-key-minimum-32-characters"
+  DATABASE_URL: "REDACTED"
+  GEMINI_API_KEY: "REDACTED"
+  SECRET_KEY: "REDACTED"
+  BETTER_AUTH_SECRET: "REDACTED"
 resources:
   requests:
     cpu: 100m
